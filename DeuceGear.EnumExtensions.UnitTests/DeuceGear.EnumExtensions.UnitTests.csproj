@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnumExtensionsTestFixture.cs" />
-    <Compile Include="EnumValueAttributeTestFixture.cs" />
+    <Compile Include="EnumExtensions.LeEnum.TestFixture.cs" />
+    <Compile Include="EnumExtensions.Value.TestFixture.cs" />
+    <Compile Include="EnumExtensions.Values.TestFixture.cs" />
+    <Compile Include="EnumValueAttribute.TestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

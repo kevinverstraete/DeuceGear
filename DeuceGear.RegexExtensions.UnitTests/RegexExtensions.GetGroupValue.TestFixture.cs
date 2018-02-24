@@ -1,11 +1,13 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 namespace DeuceGear.RegexExtensions.UnitTests
 {
     [TestFixture]
-    public class RegexExtensionsTestFixture
+    [ExcludeFromCodeCoverage]
+    public partial class RegexExtensionsTestFixture
     {
         private const string phoneNumbers = "050/12.34.56 051/23.45.67 052/15.97.53 053/98.76.54";
 

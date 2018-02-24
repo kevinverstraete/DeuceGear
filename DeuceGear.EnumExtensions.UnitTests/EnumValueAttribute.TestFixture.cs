@@ -3,7 +3,7 @@
 namespace DeuceGear.EnumExtensions.UnitTests
 {
     [TestFixture]
-    public class EnumValueAttributeTestFixture
+    public partial class EnumValueAttributeTestFixture
     {
 
         [Test]

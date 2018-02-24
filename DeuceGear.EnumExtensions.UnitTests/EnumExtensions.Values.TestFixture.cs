@@ -4,25 +4,8 @@ using System.Linq;
 namespace DeuceGear.EnumExtensions.UnitTests
 {
     [TestFixture]
-    public class EnumExtensionsTestFixture
+    public partial class EnumExtensionsTestFixture
     {
-        [Test]
-        public void EnumExtensionsValueTestForUnknownValue()
-        {
-            //assert
-            Assert.That(((LeEnum)15).Value, Is.EqualTo("15"));
-        }
-
-        [Test]
-        public void EnumExtensionsValueTestForKnownValue()
-        {
-            //assert
-            Assert.That(LeEnum.Empty.Value, Is.EqualTo("Empty"));
-            Assert.That(LeEnum.Single1.Value(), Is.EqualTo("The value of Single1"));
-            Assert.That(LeEnum.Single2.Value(), Is.EqualTo("The value of Single2"));
-            Assert.That(LeEnum.List.Value(), Is.EqualTo("The first value of List"));
-        }
-
         [Test]
         public void EnumExtensionsValuesTestForUnknownValue()
         {
@@ -32,7 +15,6 @@ namespace DeuceGear.EnumExtensions.UnitTests
             // assert
             Assert.That(unknownValue.Count(), Is.EqualTo(0));
         }
-
 
         [Test]
         public void EnumExtensionsValuesTestForEmptyValue()
@@ -67,19 +49,6 @@ namespace DeuceGear.EnumExtensions.UnitTests
             Assert.That(listValues[0], Is.EqualTo("The first value of List"));
             Assert.That(listValues[1], Is.EqualTo("The second value of List"));
             Assert.That(listValues[2], Is.EqualTo("The third value of List"));
-        }
-
-        private enum LeEnum
-        {
-            Empty,
-            [EnumValue("The value of Single1")]
-            Single1,
-            [EnumValue("The value of Single2")]
-            Single2,
-            [EnumValue("The first value of List")]
-            [EnumValue("The second value of List")]
-            [EnumValue("The third value of List")]
-            List
         }
     }
 }

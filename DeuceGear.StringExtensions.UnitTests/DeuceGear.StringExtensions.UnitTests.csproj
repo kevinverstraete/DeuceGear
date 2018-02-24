@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StringExtensionsTestFixture.cs" />
+    <Compile Include="StringExtensions.Left.TestFixture.cs" />
+    <Compile Include="StringExtensions.Right.TestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

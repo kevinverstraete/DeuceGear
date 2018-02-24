@@ -6,7 +6,7 @@ namespace DeuceGear
     /// <summary>
     /// Extension Methods for regularExpressions
     /// </summary>
-    public static class RegexExtensions
+    public static partial class RegexExtensions
     {
         /// <summary>
         /// Get a specific group value based on the name.

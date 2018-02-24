@@ -7,4 +7,14 @@
     <RepositoryUrl>https://github.com/kevinverstraete/DeuceGear</RepositoryUrl>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="StringExtensions.IsNullOrEmpty.cs" />
+    <Compile Remove="StringExtensions.IsNullOrWhiteSpace.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="StringExtensions.IsNullOrWhiteSpace.cs" />
+    <None Include="StringExtensions.IsNullOrEmpty.cs" />
+  </ItemGroup>
+
 </Project>
