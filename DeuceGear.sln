@@ -11,9 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7C0BBEDD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuceGear.EnumExtensions.UnitTests", "DeuceGear.EnumExtensions.UnitTests\DeuceGear.EnumExtensions.UnitTests.csproj", "{1CC20D70-1C0F-4653-8E59-4598B3C88408}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuceGear.StringExtensions", "DeuceGear.StringExtensions\DeuceGear.StringExtensions.csproj", "{66EC81A6-707E-4D51-98BA-8A9CFBF13C14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeuceGear.StringExtensions", "DeuceGear.StringExtensions\DeuceGear.StringExtensions.csproj", "{66EC81A6-707E-4D51-98BA-8A9CFBF13C14}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuceGear.StringExtensions.UnitTests", "DeuceGear.StringExtensions.UnitTests\DeuceGear.StringExtensions.UnitTests.csproj", "{420264E6-0505-487D-9CA0-4DE0B14AAB07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuceGear.RegexExtensions", "DeuceGear.RegexExtensions\DeuceGear.RegexExtensions.csproj", "{16D83C4D-7C07-4018-8F85-8F51FF36B809}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuceGear.RegexExtensions.UnitTests", "DeuceGear.RegexExtensions.UnitTests\DeuceGear.RegexExtensions.UnitTests.csproj", "{0CD2C086-D31E-4C28-A9AE-61E5D76E4879}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,14 @@ Global
 		{420264E6-0505-487D-9CA0-4DE0B14AAB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{420264E6-0505-487D-9CA0-4DE0B14AAB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{420264E6-0505-487D-9CA0-4DE0B14AAB07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D83C4D-7C07-4018-8F85-8F51FF36B809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D83C4D-7C07-4018-8F85-8F51FF36B809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D83C4D-7C07-4018-8F85-8F51FF36B809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D83C4D-7C07-4018-8F85-8F51FF36B809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CD2C086-D31E-4C28-A9AE-61E5D76E4879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD2C086-D31E-4C28-A9AE-61E5D76E4879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD2C086-D31E-4C28-A9AE-61E5D76E4879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD2C086-D31E-4C28-A9AE-61E5D76E4879}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +58,8 @@ Global
 		{1CC20D70-1C0F-4653-8E59-4598B3C88408} = {7C0BBEDD-843A-4CD2-AC43-C2C6015F8EED}
 		{66EC81A6-707E-4D51-98BA-8A9CFBF13C14} = {2F6A7462-1300-499E-8AF5-8E06B5FB0AC7}
 		{420264E6-0505-487D-9CA0-4DE0B14AAB07} = {7C0BBEDD-843A-4CD2-AC43-C2C6015F8EED}
+		{16D83C4D-7C07-4018-8F85-8F51FF36B809} = {2F6A7462-1300-499E-8AF5-8E06B5FB0AC7}
+		{0CD2C086-D31E-4C28-A9AE-61E5D76E4879} = {7C0BBEDD-843A-4CD2-AC43-C2C6015F8EED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A1F274B-9D29-456F-BBEA-64933AEA863B}

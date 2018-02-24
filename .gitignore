@@ -12,3 +12,7 @@
 /DeuceGear.StringExtensions/obj
 /DeuceGear.StringExtensions.UnitTests/bin/Debug
 /DeuceGear.StringExtensions.UnitTests/obj/Debug
+/DeuceGear.RegexExtensions/bin
+/DeuceGear.RegexExtensions/obj
+/DeuceGear.RegexExtensions.UnitTests/bin
+/DeuceGear.RegexExtensions.UnitTests/obj
