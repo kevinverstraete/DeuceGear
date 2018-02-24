@@ -2,7 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/DeuceGear/v15
+*.user
+/.vs
 /packages
 /DeuceGear.EnumExtensions/bin
 /DeuceGear.EnumExtensions/obj
@@ -16,3 +17,7 @@
 /DeuceGear.RegexExtensions/obj
 /DeuceGear.RegexExtensions.UnitTests/bin
 /DeuceGear.RegexExtensions.UnitTests/obj
+/DeuceGear.Linq/bin
+/DeuceGear.Linq/obj
+/DeuceGear.Linq.UnitTests/bin
+/DeuceGear.Linq.UnitTests/obj
