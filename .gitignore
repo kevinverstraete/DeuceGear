@@ -3,10 +3,12 @@
 ################################################################################
 
 /.vs/DeuceGear/v15
-/DeuceGear.Extensions/obj
-/DeuceGear.Extensions/bin
+/packages
 /DeuceGear.EnumExtensions/bin
 /DeuceGear.EnumExtensions/obj
-/DeuceGear.EnumExtensions.UnitTests/bin/Debug
-/DeuceGear.EnumExtensions.UnitTests/obj/Debug
-/packages/NUnit.3.9.0
+/DeuceGear.EnumExtensions.UnitTests/bin
+/DeuceGear.EnumExtensions.UnitTests/obj
+/DeuceGear.StringExtensions/bin
+/DeuceGear.StringExtensions/obj
+/DeuceGear.StringExtensions.UnitTests/bin/Debug
+/DeuceGear.StringExtensions.UnitTests/obj/Debug
