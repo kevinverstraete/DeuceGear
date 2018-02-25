@@ -7,7 +7,7 @@
     <ProjectGuid>{0CD2C086-D31E-4C28-A9AE-61E5D76E4879}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DeuceGear.RegexExtensions.UnitTests</RootNamespace>
+    <RootNamespace>DeuceGear.UnitTests.RegexExtensions</RootNamespace>
     <AssemblyName>DeuceGear.RegexExtensions.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

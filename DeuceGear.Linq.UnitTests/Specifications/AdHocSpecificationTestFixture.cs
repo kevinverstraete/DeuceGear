@@ -3,7 +3,7 @@ using NUnit.Framework;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace DeuceGear.Linq.UnitTests
+namespace DeuceGear.UnitTests.Linq.Specifications
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]

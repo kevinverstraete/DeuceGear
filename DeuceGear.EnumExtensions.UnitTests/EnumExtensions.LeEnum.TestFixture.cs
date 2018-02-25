@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace DeuceGear.EnumExtensions.UnitTests
+namespace DeuceGear.UnitTests.EnumExtensions
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]

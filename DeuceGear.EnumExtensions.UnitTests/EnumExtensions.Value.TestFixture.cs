@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Linq;
 
-namespace DeuceGear.EnumExtensions.UnitTests
+namespace DeuceGear.UnitTests.EnumExtensions
 {
     [TestFixture]
     public partial class EnumExtensionsTestFixture

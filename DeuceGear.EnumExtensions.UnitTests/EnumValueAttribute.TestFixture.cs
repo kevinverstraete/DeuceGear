@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace DeuceGear.EnumExtensions.UnitTests
+namespace DeuceGear.UnitTests.EnumExtensions
 {
     [TestFixture]
     public partial class EnumValueAttributeTestFixture

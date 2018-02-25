@@ -2,13 +2,9 @@
 
 Extra features that may come in handy while using Linq.
 
-## Specifications
+## Testdata
 
-Linq specifications are made for 2 reasons. The first reason is to guard a developer of writing
-the same expression every time he needs it. The second is making basic operations possible on
-linq expressions (and, or, not).
-
-As sample we use a simple class:
+As sample data in DeuceGear.Linq we use a simple class:
 ```
 public class Sample
 {
@@ -31,6 +27,46 @@ Data = new List<Sample>()
 	new Sample("Julian", "Mendez"),
 }.AsQueryable();
 ```
+
+## IEnumerable/IQueryable Extensions
+
+### OrderBy
+
+IQueryable and IEnumerable can use the method OrderBy(specification, SortDirection). 
+This way it's easy to determine the sort direction of a list without the need of an if and 
+OrderBy or OrderByDescending logic.
+
+```
+var result = TestData.List.OrderBy(c => c.LastName, SortDirection.Ascending);
+```
+
+### ThenBy
+
+IOrderedQueryable and IOrderedEnumerable can use the method ThenBy(specification, SortDirection). 
+This way it's easy to determine the sort direction of a list without the need of an if and 
+ThenBy or ThenByDescending logic.
+
+```
+var result = TestData.List
+				.OrderBy(c => c.LastName.Substring(0, 1), SortDirection.Descending)
+				.ThenBy(c => c.LastName.Substring(1, 1), SortDirection.Descending);
+```
+
+### Paging
+
+Paging implementation on IQueryable and IEnumerable.
+
+```
+var pageSize = 2;
+var numberOfPagesToSkip = 1;
+var result = TestData.List.Paging(pageSize, numberOfPagesToSkip);
+```
+
+## Specifications
+
+Linq specifications are made for 2 reasons. The first reason is to guard a developer of writing
+the same expression every time he needs it. The second is making basic operations possible on
+linq expressions (and, or, not).
 
 ### Basic operations
 

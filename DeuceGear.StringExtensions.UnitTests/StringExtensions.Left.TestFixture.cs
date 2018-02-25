@@ -2,7 +2,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace DeuceGear.StringExtensions.UnitTests
+namespace DeuceGear.UnitTests.StringExtensions
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]

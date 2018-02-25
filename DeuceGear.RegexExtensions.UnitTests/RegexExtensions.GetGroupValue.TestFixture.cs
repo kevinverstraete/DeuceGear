@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
-namespace DeuceGear.RegexExtensions.UnitTests
+namespace DeuceGear.UnitTests.RegexExtensions
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]

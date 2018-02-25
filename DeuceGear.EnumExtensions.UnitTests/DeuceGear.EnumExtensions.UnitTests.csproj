@@ -7,7 +7,7 @@
     <ProjectGuid>{1CC20D70-1C0F-4653-8E59-4598B3C88408}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DeuceGear.EnumExtensions.UnitTests</RootNamespace>
+    <RootNamespace>DeuceGear.UnitTests.EnumExtensions</RootNamespace>
     <AssemblyName>DeuceGear.EnumExtensions.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

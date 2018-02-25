@@ -7,7 +7,7 @@
     <ProjectGuid>{420264E6-0505-487D-9CA0-4DE0B14AAB07}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DeuceGear.StringExtensions.UnitTests</RootNamespace>
+    <RootNamespace>DeuceGear.UnitTests.StringExtensions</RootNamespace>
     <AssemblyName>DeuceGear.StringExtensions.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
