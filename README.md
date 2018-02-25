@@ -26,14 +26,26 @@ public enum LeEnum
 Get the first available value using the Value method. If no value is found, the method reverts to ToString()
 
 ```
-var emptyResult = LeEnum.EmptyValue.Value
+var emptyResult = LeEnum.EmptyValue.Value()
 // emptyResult will be "EmptyValue"
 
-var singleResult = LeEnum.SingleValue.Value
+var singleResult = LeEnum.SingleValue.Value()
 // singleResult will be "The value of SingleValue"
 
-var listResult = LeEnum.ListValue.Value
+var listResult = LeEnum.ListValue.Value()
 // listResult will be "The first value of ListValue"
+```
+
+Get all values if any via the Values method.
+```
+var emptyResult = LeEnum.EmptyValue.Values()
+// emptyResult will be an IEnumerable<string> without items
+
+var singleResult = LeEnum.SingleValue.Values()
+// singleResult will be an IEnumerable<string> with one item: "The value of SingleValue"
+
+var listResult = LeEnum.ListValue.Values()
+// listResult will be an IEnumerable<string> with 2 items: ["The first value of ListValue", "The second value of ListValue"]
 ```
 
 ### DeuceGear.Linq
