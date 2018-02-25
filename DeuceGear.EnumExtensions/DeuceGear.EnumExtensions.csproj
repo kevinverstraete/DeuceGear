@@ -5,6 +5,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/kevinverstraete/DeuceGear</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kevinverstraete/DeuceGear</RepositoryUrl>
+    <Description>Extension pack targeting Enums</Description>
+    <Authors>DeuceGear</Authors>
+    <Company>DeuceGear</Company>
+    <Product>DeuceGear</Product>
   </PropertyGroup>
 
 </Project>

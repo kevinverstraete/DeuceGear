@@ -19,9 +19,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeuceGear.RegexExtensions",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuceGear.RegexExtensions.UnitTests", "DeuceGear.RegexExtensions.UnitTests\DeuceGear.RegexExtensions.UnitTests.csproj", "{0CD2C086-D31E-4C28-A9AE-61E5D76E4879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuceGear.Linq", "DeuceGear.Linq\DeuceGear.Linq.csproj", "{0BCA9296-5C06-471C-A9C7-64BFEE1D16A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeuceGear.Linq", "DeuceGear.Linq\DeuceGear.Linq.csproj", "{0BCA9296-5C06-471C-A9C7-64BFEE1D16A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeuceGear.Linq.UnitTests", "DeuceGear.Linq.UnitTests\DeuceGear.Linq.UnitTests.csproj", "{F0E466C2-6757-466B-8B87-7462BBA36621}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AA4C64A2-26BF-43ED-8EA1-509A26F7053E}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

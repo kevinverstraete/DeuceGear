@@ -7,6 +7,8 @@ The purpose is to provide a small library of every day used pieces of logic ever
 
 ### DeuceGear.EnumExtensions
 
+Extension pack targeting Enums
+
 #### EnumValueAttribute
 
 Define a enum and add EnumValue attributes to the values.
@@ -49,5 +51,13 @@ var listResult = LeEnum.ListValue.Values()
 ```
 
 ### DeuceGear.Linq
+
+Extra features that may come in handy while using Linq
+
 ### DeuceGear.RegexExtensions
+
+Extension pack targeting Regex
+
 ### DeuceGear.StringExtensions
+
+Extension pack targeting Strings

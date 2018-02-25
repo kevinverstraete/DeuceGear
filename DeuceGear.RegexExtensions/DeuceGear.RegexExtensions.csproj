@@ -5,6 +5,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/kevinverstraete/DeuceGear</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kevinverstraete/DeuceGear</RepositoryUrl>
+    <Authors>DeuceGear</Authors>
+    <Company>DeuceGear</Company>
+    <Product>DeuceGear</Product>
+    <Description>Extension pack targeting Regex</Description>
   </PropertyGroup>
 
 </Project>
