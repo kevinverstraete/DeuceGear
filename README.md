@@ -84,7 +84,7 @@ Data = new List<Sample>()
 
 ##### Basic operations
 
-Multiple expressions can now be manuipulated with some basic operations (or, and, not):
+Multiple expressions can now be manipulated with some basic operations (or, and, not):
 ```
 Expression<Func<Sample, bool>> specFirstName = x => x.FirstName.StartsWith("M");
 Expression<Func<Sample, bool>> specLastName = x => x.LastName.StartsWith("M");
