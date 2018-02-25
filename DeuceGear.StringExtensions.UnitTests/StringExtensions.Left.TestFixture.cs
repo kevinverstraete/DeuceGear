@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace DeuceGear.StringExtensions.UnitTests
@@ -15,13 +16,6 @@ namespace DeuceGear.StringExtensions.UnitTests
         [TestCase("ab", 0, "")]
         [TestCase("abc", 0, "")]
         [TestCase("abcd", 0, "")]
-        // negative length case
-        [TestCase(null, -1, "")]
-        [TestCase("", -1, "")]
-        [TestCase("a", -1, "")]
-        [TestCase("ab", -1, "")]
-        [TestCase("abc", -1, "")]
-        [TestCase("abcd", -1, "")]
         // correct length case
         [TestCase(null, 2, "")]
         [TestCase("", 2, "")]
@@ -36,6 +30,22 @@ namespace DeuceGear.StringExtensions.UnitTests
 
             // assert
             Assert.That(result, Is.EqualTo(expectation));
+        }
+
+        // negative length case
+        [TestCase(null, -1, "")]
+        [TestCase("", -1, "")]
+        [TestCase("a", -1, "")]
+        [TestCase("ab", -1, "")]
+        [TestCase("abc", -1, "")]
+        [TestCase("abcd", -1, "")]
+        public void StringExtensionsTestLeftException(string value, int length, string expectation)
+        {
+            // act + arrange
+            var result = Assert.Throws<ArgumentException>(() => value.Left(length));
+
+            // assert
+            Assert.That(result.Message, Is.EqualTo("Length can not be a negative value"));
         }
     }
 }
