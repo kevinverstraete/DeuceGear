@@ -9,6 +9,7 @@
     <Company>DeuceGear</Company>
     <Product>DeuceGear</Product>
     <Description>Extra features that may come in handy while using Linq</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
