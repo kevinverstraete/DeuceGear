@@ -5,7 +5,7 @@ Extension pack targeting Enums
 ## EnumValueAttribute
 
 Define a enum and add EnumValue attributes to the values:
-```
+```cs
 public enum LeEnum
 {
   EmptyValue,
@@ -18,7 +18,7 @@ public enum LeEnum
 ```
 
 Get the first available value using the Value method. If no value is found, the method reverts to ToString():
-```
+```cs
 var emptyResult = LeEnum.EmptyValue.Value()
 // emptyResult will be "EmptyValue"
 
@@ -30,7 +30,7 @@ var listResult = LeEnum.ListValue.Value()
 ```
 
 Get all values if any via the Values method:
-```
+```cs
 var emptyResult = LeEnum.EmptyValue.Values()
 // emptyResult will be an IEnumerable<string> without items
 
