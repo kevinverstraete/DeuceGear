@@ -1,4 +1,4 @@
-﻿[<< Back to main page](../readme.md)
+﻿[<< Back to main page](../)
 
 # DeuceGear.RegexExtensions
 
@@ -24,4 +24,4 @@ var emptyValue = matches[0].GetGroupValue("bob");
 // emptyValue will be string.Emptyt because the "bob" group does not exist
 ```
 
-[<< Back to main page](../readme.md)
+[<< Back to main page](../)

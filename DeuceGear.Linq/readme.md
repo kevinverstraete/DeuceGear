@@ -1,4 +1,4 @@
-﻿[<< Back to main page](../readme.md)
+﻿[<< Back to main page](../)
 
 # DeuceGear.Linq
 
@@ -147,4 +147,4 @@ var specNot = !specFirstName;
 This could come handy in cases where input in the UI determines what filters need to be used. 
 Just build up the specification according to the input parameters.
 
-[<< Back to main page](../readme.md)
+[<< Back to main page](../)

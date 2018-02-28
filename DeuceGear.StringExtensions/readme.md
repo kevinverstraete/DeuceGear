@@ -1,4 +1,4 @@
-﻿[<< Back to main page](../readme.md)
+﻿[<< Back to main page](../)
 
 # DeuceGear.StringExtensions
 
@@ -16,4 +16,4 @@ A standard right implementation.
 - Negative values return an exception.
 - if more characters are asked than available, just return what's there
 
-[<< Back to main page](../readme.md)
+[<< Back to main page](../)

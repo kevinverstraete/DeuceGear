@@ -1,4 +1,4 @@
-﻿[<< Back to main page](../readme.md)
+﻿[<< Back to main page](../)
 
 # DeuceGear.EnumExtensions
 
@@ -43,4 +43,4 @@ var listResult = LeEnum.ListValue.Values()
 // listResult will be an IEnumerable<string> with 2 items: ["The first value of ListValue", "The second value of ListValue"]
 ```
 
-[<< Back to main page](../readme.md)
+[<< Back to main page](../)
