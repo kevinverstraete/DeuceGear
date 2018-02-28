@@ -1,4 +1,6 @@
-﻿# DeuceGear.EnumExtensions
+﻿[<< Back to main page](../readme.md)
+
+# DeuceGear.EnumExtensions
 
 Extension pack targeting Enums
 
@@ -40,3 +42,5 @@ var singleResult = LeEnum.SingleValue.Values()
 var listResult = LeEnum.ListValue.Values()
 // listResult will be an IEnumerable<string> with 2 items: ["The first value of ListValue", "The second value of ListValue"]
 ```
+
+[<< Back to main page](../readme.md)

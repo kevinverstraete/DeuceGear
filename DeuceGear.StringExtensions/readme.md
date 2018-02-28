@@ -1,4 +1,6 @@
-﻿# DeuceGear.StringExtensions
+﻿[<< Back to main page](../readme.md)
+
+# DeuceGear.StringExtensions
 
 Extension pack targeting Strings
 
@@ -13,3 +15,5 @@ A standard left implementation.
 A standard right implementation.
 - Negative values return an exception.
 - if more characters are asked than available, just return what's there
+
+[<< Back to main page](../readme.md)
