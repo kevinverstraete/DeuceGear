@@ -8,12 +8,12 @@ Define a enum and add EnumValue attributes to the values:
 ```cs
 public enum LeEnum
 {
-  EmptyValue,
-  [EnumValue("The value of SingleValue")] 
-  SingleValue,
-  [EnumValue("The first value of ListValue")]
-  [EnumValue("The second value of ListValue")] 
-  ListValue
+    EmptyValue,
+    [EnumValue("The value of SingleValue")] 
+    SingleValue,
+    [EnumValue("The first value of ListValue")]
+    [EnumValue("The second value of ListValue")] 
+    ListValue
 }
 ```
 
