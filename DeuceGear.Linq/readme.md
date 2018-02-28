@@ -22,9 +22,9 @@ We alse defined a small list of objects:
 ```cs
 Data = new List<Sample>()
 {
-	new Sample("Jose", "Rodriguez"),
-	new Sample("Manuel", "Rivera"),
-	new Sample("Julian", "Mendez"),
+    new Sample("Jose", "Rodriguez"),
+    new Sample("Manuel", "Rivera"),
+    new Sample("Julian", "Mendez"),
 }.AsQueryable();
 ```
 
@@ -95,15 +95,15 @@ If a specific Expression is used over and over, it is possible to contain it wit
 ```cs
 public class FirstNameSpecification : Specification<Sample>
 {
-	private string _firstName;
+    private string _firstName;
     public FirstNameSpecification(string firstName)
-    {
-		_firstName = firstName;
+    { 
+        _firstName = firstName;
     }
-    
-	public override Expression<Func<Sample, bool>> IsSatisfied()
+
+    public override Expression<Func<Sample, bool>> IsSatisfied()
     {
-		return c => c.FirstName == _firstName;
+        return c => c.FirstName == _firstName;
     }
 }
 ```
