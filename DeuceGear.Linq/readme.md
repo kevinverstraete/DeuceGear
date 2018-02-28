@@ -48,8 +48,8 @@ ThenBy or ThenByDescending logic.
 
 ```cs
 var result = TestData.List
-				.OrderBy(c => c.LastName.Substring(0, 1), SortDirection.Descending)
-				.ThenBy(c => c.LastName.Substring(1, 1), SortDirection.Descending);
+             .OrderBy(c => c.LastName.Substring(0, 1), SortDirection.Descending)
+             .ThenBy(c => c.LastName.Substring(1, 1), SortDirection.Descending);
 ```
 
 ### Paging(pageSize, numberOfPagesToSkip)
