@@ -4,8 +4,8 @@ Extra features that may come in handy while using Linq.
 
 ## Testdata
 
-As sample data in DeuceGear.Linq we use a simple class:
-```
+To make the DeuceGear.Linq samples easier, we use a basic class:
+```cs
 public class Sample
 {
     public Sample(string firstName, string lastName)
@@ -18,8 +18,8 @@ public class Sample
 }
 ```
 
-We have a list object where we want to execute some filters on:
-```
+We alse defined a small list of objects:
+```cs
 Data = new List<Sample>()
 {
 	new Sample("Jose", "Rodriguez"),
@@ -30,33 +30,33 @@ Data = new List<Sample>()
 
 ## IEnumerable/IQueryable Extensions
 
-### OrderBy
+### OrderBy(specification, sortDirection)
 
 IQueryable and IEnumerable can use the method OrderBy(specification, SortDirection). 
 This way it's easy to determine the sort direction of a list without the need of an if and 
 OrderBy or OrderByDescending logic.
 
-```
+```cs
 var result = TestData.List.OrderBy(c => c.LastName, SortDirection.Ascending);
 ```
 
-### ThenBy
+### ThenBy(specification, sortDirection)
 
 IOrderedQueryable and IOrderedEnumerable can use the method ThenBy(specification, SortDirection). 
 This way it's easy to determine the sort direction of a list without the need of an if and 
 ThenBy or ThenByDescending logic.
 
-```
+```cs
 var result = TestData.List
 				.OrderBy(c => c.LastName.Substring(0, 1), SortDirection.Descending)
 				.ThenBy(c => c.LastName.Substring(1, 1), SortDirection.Descending);
 ```
 
-### Paging
+### Paging(pageSize, numberOfPagesToSkip)
 
 Paging implementation on IQueryable and IEnumerable.
 
-```
+```cs
 var pageSize = 2;
 var numberOfPagesToSkip = 1;
 var result = TestData.List.Paging(pageSize, numberOfPagesToSkip);
@@ -71,7 +71,7 @@ linq expressions (and, or, not).
 ### Basic operations
 
 Multiple expressions can now be manipulated with some basic operations (or, and, not):
-```
+```cs
 Expression<Func<Sample, bool>> specFirstName = x => x.FirstName.StartsWith("M");
 Expression<Func<Sample, bool>> specLastName = x => x.LastName.StartsWith("M");
 
@@ -92,7 +92,7 @@ var notResult = Data.Where(notExpression);
 ### Custom specifications
 
 If a specific Expression is used over and over, it is possible to contain it within a custom expression:
-```
+```cs
 public class FirstNameSpecification : Specification<Sample>
 {
 	private string _firstName;
@@ -109,7 +109,7 @@ public class FirstNameSpecification : Specification<Sample>
 ```
 
 Use:
-```
+```cs
 var spec = new FirstNameSpecification("Julian");
 var result = Data.Where(spec.IsSatisfied());
 ```
@@ -117,7 +117,7 @@ var result = Data.Where(spec.IsSatisfied());
 ### AdHoc Specification
 
 Creating a custom specification can be made AdHoc:
-```
+```cs
 var spec = new AdHocSpecification<Sample>(x => x.FirstName.StartsWith("J"));
 var result = Data.Where(spec.IsSatisfied());
 ```
@@ -125,7 +125,7 @@ var result = Data.Where(spec.IsSatisfied());
 ### Selector Specification
 
 A Selector Specification exists so easy criteria can be made, controllered by the UI for example
-```
+```cs
 var spec = new SelectorSpecification<Sample, string>(x => x.FirstName, Operation.StartsWith, "J");
 var result = Data.Where(spec.IsSatisfied());
 ```
@@ -133,7 +133,7 @@ var result = Data.Where(spec.IsSatisfied());
 ### Specification Operations
 
 Specifications can also be controlled via operations: 
-```
+```cs
 var specFirstName = new AdHocSpecification<Sample>(x => x.FirstName.StartsWith("J"));
 var specLastName = new AdHocSpecification<Sample>(x => x.LastName.StartsWith("M"));
 
