@@ -17,6 +17,9 @@ namespace DeuceGear.UnitTests.Linq.Extensions
         {
             yield return new TestCaseData("enum", TestData.List.AsEnumerable().IsNotIn(_jose, _bob).ToList());
             yield return new TestCaseData("query", TestData.List.IsNotIn(_jose, _bob).ToList());
+            
+            yield return new TestCaseData("enum - select", TestData.List.AsEnumerable().IsNotIn(x => x.LastName, _jose.LastName, _bob.LastName).ToList());
+            yield return new TestCaseData("query - select", TestData.List.IsNotIn(x => x.LastName, _jose.LastName, _bob.LastName).ToList());
         }
 
         [Test]
@@ -41,6 +44,13 @@ namespace DeuceGear.UnitTests.Linq.Extensions
             yield return new TestCaseData("query - array", TestData.List.IsNotIn(_checkList.ToArray()).ToList());
             yield return new TestCaseData("query - enum", TestData.List.IsNotIn(_checkList.AsEnumerable()).ToList());
             yield return new TestCaseData("query - query", TestData.List.IsNotIn(_checkList.AsQueryable()).ToList());
+
+            yield return new TestCaseData("enum - array - select", TestData.List.AsEnumerable().IsNotIn(x => x.LastName, _checkList.Select(x => x.LastName).ToArray()).ToList());
+            yield return new TestCaseData("enum - enum - select", TestData.List.AsEnumerable().IsNotIn(x => x.LastName, _checkList.Select(x => x.LastName).AsEnumerable()).ToList());
+            yield return new TestCaseData("enum - query - select", TestData.List.AsEnumerable().IsNotIn(x => x.LastName, _checkList.Select(x => x.LastName).AsQueryable()).ToList());
+            yield return new TestCaseData("query - array - select", TestData.List.IsNotIn(x => x.LastName, _checkList.Select(x => x.LastName).ToArray()).ToList());
+            yield return new TestCaseData("query - enum - select", TestData.List.IsNotIn(x => x.LastName, _checkList.Select(x => x.LastName).AsEnumerable()).ToList());
+            yield return new TestCaseData("query - query - select", TestData.List.IsNotIn(x => x.LastName, _checkList.Select(x => x.LastName).AsQueryable()).ToList());
         }
 
         [Test]

@@ -17,6 +17,15 @@ public class Sample
     }
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
+    public override bool Equals(object obj)
+    {
+        if (obj is Sample sample)
+        {
+            return string.Compare(sample.FirstName, FirstName) == 0
+                && string.Compare(sample.LastName, LastName) == 0;
+        }
+        return base.Equals(obj);
+    }
 }
 ```
 
@@ -31,6 +40,33 @@ Data = new List<Sample>()
 ```
 
 ## IEnumerable/IQueryable Extensions
+
+### IsIn(...) / IsNotIn(...)
+
+Instead of writing:
+```cs
+var list = new List<string>() 
+    {
+        new Sample("Bob", "Barker")
+        new Sample("Jose", "Rodriguez"),
+        new Sample("Julian", "Mendez") 
+    };
+var result = TestData.List.Where(x => list.Contains(x));
+```
+
+It's now possible to write in a simpler syntax:
+```cs
+var result = TestData.List.IsIn(
+    new Sample("Bob", "Barker"),
+    new Sample("Jose", "Rodriguez"),
+    new Sample("Julian", "Mendez"));
+```
+
+This seems just as simple at first, but think of the following:
+```cs
+var data = new List<int>{1,2,3,4,5,6,7};
+var filtered = data.IsIn(1,3,4);
+```
 
 ### OrderBy(specification, sortDirection)
 

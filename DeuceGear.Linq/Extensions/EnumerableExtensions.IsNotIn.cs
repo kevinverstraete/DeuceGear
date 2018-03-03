@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DeuceGear.Linq
 {
@@ -39,6 +41,38 @@ namespace DeuceGear.Linq
             if (list == null)
                 list = new List<TSource>();
             return source.Where(x => !list.Contains(x));
+        }
+
+        /// <summary>
+        /// Syntactic Sugar for source.Where(x => list.Contains(x.Value));
+        /// </summary>
+        public static IEnumerable<TSource> IsNotIn<TSource, TKey>(this IEnumerable<TSource> source, Expression<Func<TSource, TKey>> selector, params TKey[] list)
+        {
+            return source.Where(x => !list.Contains(selector.Compile().Invoke(x)));
+        }
+
+        /// <summary>
+        /// Syntactic Sugar for source.Where(x => list.Contains(x.Value));
+        /// </summary>
+        public static IQueryable<TSource> IsNotIn<TSource, TKey>(this IQueryable<TSource> source, Expression<Func<TSource, TKey>> selector, params TKey[] list)
+        {
+            return source.Where(x => !list.Contains(selector.Compile().Invoke(x)));
+        }
+
+        /// <summary>
+        /// Syntactic Sugar for source.Where(x => list.Contains(x.Value));
+        /// </summary>
+        public static IEnumerable<TSource> IsNotIn<TSource, TKey>(this IEnumerable<TSource> source, Expression<Func<TSource, TKey>> selector, IEnumerable<TKey> list)
+        {
+            return source.Where(x => !list.Contains(selector.Compile().Invoke(x)));
+        }
+
+        /// <summary>
+        /// Syntactic Sugar for source.Where(x => list.Contains(x.Value));
+        /// </summary>
+        public static IQueryable<TSource> IsNotIn<TSource, TKey>(this IQueryable<TSource> source, Expression<Func<TSource, TKey>> selector, IEnumerable<TKey> list)
+        {
+            return source.Where(x => !list.Contains(selector.Compile().Invoke(x)));
         }
     }
 }

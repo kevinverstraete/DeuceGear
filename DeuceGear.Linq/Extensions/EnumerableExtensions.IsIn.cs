@@ -42,5 +42,37 @@ namespace DeuceGear.Linq
                 list = new List<TSource>();
             return source.Where(x => list.Contains(x));
         }
+
+        /// <summary>
+        /// Syntactic Sugar for source.Where(x => list.Contains(x.Value));
+        /// </summary>
+        public static IEnumerable<TSource> IsIn<TSource, TKey>(this IEnumerable<TSource> source, Expression<Func<TSource, TKey>> selector,params TKey[] list)
+        {
+            return source.Where(x => list.Contains(selector.Compile().Invoke(x)));
+        }
+
+        /// <summary>
+        /// Syntactic Sugar for source.Where(x => list.Contains(x.Value));
+        /// </summary>
+        public static IQueryable<TSource> IsIn<TSource, TKey>(this IQueryable<TSource> source, Expression<Func<TSource, TKey>> selector, params TKey[] list)
+        {
+            return source.Where(x => list.Contains(selector.Compile().Invoke(x)));
+        }
+
+        /// <summary>
+        /// Syntactic Sugar for source.Where(x => list.Contains(x.Value));
+        /// </summary>
+        public static IEnumerable<TSource> IsIn<TSource, TKey>(this IEnumerable<TSource> source, Expression<Func<TSource, TKey>> selector, IEnumerable<TKey> list)
+        {
+            return source.Where(x => list.Contains(selector.Compile().Invoke(x)));
+        }
+
+        /// <summary>
+        /// Syntactic Sugar for source.Where(x => list.Contains(x.Value));
+        /// </summary>
+        public static IQueryable<TSource> IsIn<TSource, TKey>(this IQueryable<TSource> source, Expression<Func<TSource, TKey>> selector, IEnumerable<TKey> list)
+        {
+            return source.Where(x => list.Contains(selector.Compile().Invoke(x)));
+        }
     }
 }

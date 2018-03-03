@@ -17,6 +17,9 @@ namespace DeuceGear.UnitTests.Linq.Extensions
         {
             yield return new TestCaseData("enum", TestData.List.AsEnumerable().IsIn(_jose, _bob).ToList());
             yield return new TestCaseData("query", TestData.List.IsIn(_jose, _bob).ToList());
+
+            yield return new TestCaseData("enum - select", TestData.List.AsEnumerable().IsIn(x => x.FirstName,_jose.FirstName, _bob.FirstName).ToList());
+            yield return new TestCaseData("query - select", TestData.List.IsIn(x => x.FirstName, _jose.FirstName, _bob.FirstName).ToList());
         }
 
         [Test]
@@ -30,8 +33,7 @@ namespace DeuceGear.UnitTests.Linq.Extensions
             Assert.That(resultEnumerable.Count, Is.EqualTo(1));
             Assert.That(resultEnumerable[0].LastName, Is.EqualTo("Rodriguez"));
         }
-
-
+       
         private static IEnumerable<TestCaseData> EnumerableExtensionsTestIsInListData()
         {
             yield return new TestCaseData("enum - array", TestData.List.AsEnumerable().IsIn(_checkList.ToArray()).ToList());
@@ -40,6 +42,13 @@ namespace DeuceGear.UnitTests.Linq.Extensions
             yield return new TestCaseData("query - array", TestData.List.IsIn(_checkList.ToArray()).ToList());
             yield return new TestCaseData("query - enum", TestData.List.IsIn(_checkList.AsEnumerable()).ToList());
             yield return new TestCaseData("query - query", TestData.List.IsIn(_checkList.AsQueryable()).ToList());
+
+            yield return new TestCaseData("enum - array - select", TestData.List.AsEnumerable().IsIn(x => x.FirstName, _checkList.Select(x => x.FirstName).ToArray()).ToList());
+            yield return new TestCaseData("enum - enum - select", TestData.List.AsEnumerable().IsIn(x => x.FirstName, _checkList.Select(x => x.FirstName).AsEnumerable()).ToList());
+            yield return new TestCaseData("enum - query - select", TestData.List.AsEnumerable().IsIn(x => x.FirstName, _checkList.Select(x => x.FirstName).AsQueryable()).ToList());
+            yield return new TestCaseData("query - array - select", TestData.List.IsIn(x => x.FirstName, _checkList.Select(x => x.FirstName).ToArray()).ToList());
+            yield return new TestCaseData("query - enum - select", TestData.List.IsIn(x => x.FirstName, _checkList.Select(x => x.FirstName).AsEnumerable()).ToList());
+            yield return new TestCaseData("query - query - select", TestData.List.IsIn(x => x.FirstName, _checkList.Select(x => x.FirstName).AsQueryable()).ToList());
         }
 
         [Test]
