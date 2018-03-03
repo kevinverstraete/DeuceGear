@@ -1,20 +1,25 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DeuceGear.Linq;
 using NUnit.Framework;
 
 namespace DeuceGear.UnitTests.Linq.Extensions
 {
-	[TestFixture]
-    public partial class EnumerableExtensionsTestFixture
+    [TestFixture]
+    public class EnumerableExtensionsOrderByTestFixture
     {
+        private static IEnumerable<TestCaseData> ExtensionsTestSortingAscendingData()
+        {
+            yield return new TestCaseData("enum",TestData.List.AsEnumerable().OrderBy(c => c.LastName, SortDirection.Ascending).ToList());
+            yield return new TestCaseData("query",  TestData.List.OrderBy(c => c.LastName, SortDirection.Ascending).ToList());
+        }
+
         [Test]
-        public void EnumerableExtensionsTestSortingAscending()
+        [TestCaseSource(nameof(ExtensionsTestSortingAscendingData))]
+        public void EnumerableExtensionsTestSortingAscending(string id, List<Sample> act)
         {
             // act
-            var resultEnumerable = TestData.List
-                .AsEnumerable()
-                .OrderBy(c => c.LastName, SortDirection.Ascending)
-                .ToList();
+            var resultEnumerable = act;
 
             // assert
             Assert.That(resultEnumerable[0].LastName, Is.EqualTo("Mendez"));
@@ -22,47 +27,23 @@ namespace DeuceGear.UnitTests.Linq.Extensions
             Assert.That(resultEnumerable[2].LastName, Is.EqualTo("Rodriguez"));
         }
 
-        [Test]
-        public void QueryableExtensionsTestSortingAscending()
+        private static IEnumerable<TestCaseData> ExtensionsTestSortingDescendingData()
         {
-            // act
-            var resultQueryable = TestData.List
-                .OrderBy(c => c.LastName, SortDirection.Ascending)
-                .ToList();
-
-            // assert
-            Assert.That(resultQueryable[0].LastName, Is.EqualTo("Mendez"));
-            Assert.That(resultQueryable[1].LastName, Is.EqualTo("Rivera"));
-            Assert.That(resultQueryable[2].LastName, Is.EqualTo("Rodriguez"));
+            yield return new TestCaseData("enum", TestData.List.AsEnumerable().OrderBy(c => c.FirstName, SortDirection.Descending).ToList());
+            yield return new TestCaseData("query", TestData.List.OrderBy(c => c.FirstName, SortDirection.Descending).ToList());
         }
 
         [Test]
-        public void EnumerableExtensionsTestSortingDescending()
+        [TestCaseSource(nameof(ExtensionsTestSortingDescendingData))]
+        public void EnumerableExtensionsTestSortingDescending(string id, List<Sample> act)
         {
             // act
-            var resultEnumerable = TestData.List
-                .AsEnumerable()
-                .OrderBy(c => c.FirstName, SortDirection.Descending)
-                .ToList();
+            var resultEnumerable = act;
 
             // assert
             Assert.That(resultEnumerable[0].FirstName, Is.EqualTo("Manuel"));
             Assert.That(resultEnumerable[1].FirstName, Is.EqualTo("Julian"));
             Assert.That(resultEnumerable[2].FirstName, Is.EqualTo("Jose"));
-        }
-
-        [Test]
-        public void QueryableExtensionsTestSortingDescending()
-        {
-            // act
-            var resultQueryable = TestData.List
-                .OrderBy(c => c.FirstName, SortDirection.Descending)
-                .ToList();
-
-            // assert
-            Assert.That(resultQueryable[0].FirstName, Is.EqualTo("Manuel"));
-            Assert.That(resultQueryable[1].FirstName, Is.EqualTo("Julian"));
-            Assert.That(resultQueryable[2].FirstName, Is.EqualTo("Jose"));
         }
     }
 }

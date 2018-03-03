@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace DeuceGear.UnitTests.Linq.Extensions
 {
 	[TestFixture]
-    public partial class EnumerableExtensionsTestFixture
+    public class EnumerableExtensionsThenByTestFixture
     {
         [Test]
         public void EnumerableExtensionsTestThenSorting()

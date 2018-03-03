@@ -24,5 +24,15 @@ namespace DeuceGear.UnitTests.Linq
         }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
+        public override bool Equals(object obj)
+        {
+            if (obj is Sample sample)
+            {
+                return string.Compare(sample.FirstName, FirstName) == 0
+                    && string.Compare(sample.LastName, LastName) == 0;
+
+            }
+            return base.Equals(obj);
+        }
     }
 }

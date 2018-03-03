@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\EnumerableExtensions.IsNotIn.TestFixture.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.IsIn.TestFixture.cs" />
     <Compile Include="Extensions\EnumerableExtensions.OrderBy.TestFixture.cs" />
     <Compile Include="Extensions\EnumerableExtensions.Paging.TestFixture.cs" />
     <Compile Include="Specifications\AdHocSpecificationTestFixture.cs" />

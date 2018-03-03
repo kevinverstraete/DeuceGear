@@ -7,7 +7,7 @@ using System;
 namespace DeuceGear.UnitTests.Linq.Extensions
 {
 	[TestFixture]
-    public partial class EnumerableExtensionsTestFixture
+    public class EnumerableExtensionsPagingTestFixture
     {
         [Test]
         [TestCase(2, 0, "ab")]
