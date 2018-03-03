@@ -9,6 +9,7 @@
     <Company>DeuceGear</Company>
     <Product>DeuceGear</Product>
     <Description>Extension pack targeting Regex</Description>
+    <DebugType>Full</DebugType>
   </PropertyGroup>
 
 </Project>

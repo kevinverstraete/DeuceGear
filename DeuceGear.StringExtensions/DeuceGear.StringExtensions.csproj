@@ -12,6 +12,7 @@
     <Company>DeuceGear</Company>
     <Product>DeuceGear</Product>
     <Description>Extension pack targeting Strings</Description>
+    <DebugType>Full</DebugType>
   </PropertyGroup>
 
 </Project>
