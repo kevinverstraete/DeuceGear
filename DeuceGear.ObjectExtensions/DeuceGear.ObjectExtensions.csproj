@@ -9,6 +9,11 @@
     <Company>DeuceGear</Company>
     <Product>DeuceGear</Product>
     <Version>1.0.0</Version>
+    <RootNamespace>DeuceGear</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DeuceGear.ArrayExtensions\DeuceGear.ArrayExtensions.csproj" />
+  </ItemGroup>
 
 </Project>
