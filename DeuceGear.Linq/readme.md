@@ -60,12 +60,8 @@ var result = TestData.List.IsIn(
     new Sample("Bob", "Barker"),
     new Sample("Jose", "Rodriguez"),
     new Sample("Julian", "Mendez"));
-```
-
-This seems just as simple at first, but think of the following:
-```cs
-var data = new List<int>{1,2,3,4,5,6,7};
-var filtered = data.IsIn(1,3,4);
+or
+var result = TestData.List.IsIn(x => x.FirstName, "Bob", "Jose", "Julian");
 ```
 
 ### OrderBy(specification, sortDirection)
