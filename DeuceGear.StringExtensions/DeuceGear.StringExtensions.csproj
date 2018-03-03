@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageProjectUrl>https://github.com/kevinverstraete/DeuceGear</PackageProjectUrl>
+    <PackageProjectUrl>https://kevinverstraete.github.io/DeuceGear/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kevinverstraete/DeuceGear</RepositoryUrl>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <FileVersion>1.0.1.0</FileVersion>

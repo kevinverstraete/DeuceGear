@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageProjectUrl>https://github.com/kevinverstraete/DeuceGear</PackageProjectUrl>
+    <PackageProjectUrl>https://kevinverstraete.github.io/DeuceGear/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kevinverstraete/DeuceGear</RepositoryUrl>
     <Description>Extension pack targeting Enums</Description>
     <Authors>DeuceGear</Authors>
