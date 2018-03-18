@@ -6,14 +6,14 @@ namespace DeuceGear.UnitTests.EnumExtensions
     public partial class EnumExtensionsTestFixture
     {
         [Test]
-        public void EnumExtensionsValueTestForUnknownValue()
+        public void EnumExtensionsTextValueTestForUnknownValue()
         {
             //assert
             Assert.That(((LeEnum)15).TextValue, Is.EqualTo("15"));
         }
 
         [Test]
-        public void EnumExtensionsValueTestForKnownValue()
+        public void EnumExtensionsTextValueTestForKnownValue()
         {
             //assert
             Assert.That(LeEnum.Empty.TextValue, Is.EqualTo("Empty"));

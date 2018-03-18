@@ -43,8 +43,27 @@ var listResult = LeEnum.ListValue.TextValues()
 // listResult will be an IEnumerable<string> with 2 items: ["The first value of ListValue", "The second value of ListValue"]
 ```
 
-## Breaking changes
+### Breaking changes
 ##### v1.0.0 > v1.0.1
 - **EnumValueAttribute** got renamed to **EnumTextValueAttribute**
+
+
+# Enums
+
+DeuceGear.Enums contains commonly used methods for Enums.
+
+## EnumList
+
+DeuceGear.Enums.EnumList\<T\>() gives you a list of possible enum values for the given type \<T\>.
+The first call to this method caches the data to make future calls for this type much faster.
+In other words, if you only need the list once, stick with "typeof(T).GetEnumValues()".
+
+```cs
+var result = Enums.EnumList<LeEnum>()
+// result while be an IEnumerable of Enums.
+```
+
+This method has also a little brother, namely DeuceGear.Enums.EnumIntList\<T\>().
+This returns a simple array of integers with all possible values.
 
 [<< Back to main page](../)

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums.EnumList.TestFixture.cs" />
     <Compile Include="EnumExtensions.TextValue.TestFixture.cs" />
     <Compile Include="EnumExtensions.TextValues.TestFixture.cs" />
     <Compile Include="EnumTextValueAttribute.TestFixture.cs" />
