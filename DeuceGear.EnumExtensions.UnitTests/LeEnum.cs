@@ -5,13 +5,21 @@ namespace DeuceGear.UnitTests.EnumExtensions
     public enum LeEnum
     {
         Empty,
-        [EnumValue("The value of Single1")]
+        [EnumTextValue("The value of Single1")]
         Single1,
-        [EnumValue("The value of Single2")]
+        [EnumTextValue("The value of Single2")]
         Single2,
-        [EnumValue("The first value of List")]
-        [EnumValue("The second value of List")]
-        [EnumValue("The third value of List")]
+        [EnumTextValue("The first value of List")]
+        [EnumTextValue("The second value of List")]
+        [EnumTextValue("The third value of List")]
+        List
+    }
+
+    public enum LeCachingEnum
+    {
+        Empty,
+        Single1,
+        Single2,
         List
     }
 
@@ -19,13 +27,16 @@ namespace DeuceGear.UnitTests.EnumExtensions
     public enum LeFlaggedEnum
     {
         Empty = 1,
-        [EnumValue("The value of Single1")]
         Single1 = 2,
-        [EnumValue("The value of Single2")]
         Single2 = 4,
-        [EnumValue("The first value of List")]
-        [EnumValue("The second value of List")]
-        [EnumValue("The third value of List")]
         List = 8
+    }
+    [Flags]
+    public enum LeBadFlaggedEnum
+    {
+        Empty = 1,
+        Single1 = 2,
+        Single2 = 5,
+        List = 10
     }
 }

@@ -7,30 +7,30 @@ namespace DeuceGear.UnitTests.EnumExtensions
     public partial class EnumExtensionsTestFixture
     {
         [Test]
-        public void EnumExtensionsValuesTestForUnknownValue()
+        public void EnumExtensionsTextValuesTestForUnknownValue()
         {
             // arrange/Act
-            var unknownValue = ((LeEnum)13).Values().ToList();
+            var unknownValue = ((LeEnum)13).TextValues().ToList();
 
             // assert
             Assert.That(unknownValue.Count(), Is.EqualTo(0));
         }
 
         [Test]
-        public void EnumExtensionsValuesTestForEmptyValue()
+        public void EnumExtensionsTextValuesTestForEmptyValue()
         {
             // arrange/Act
-            var emptyValue = LeEnum.Empty.Values().ToList();
+            var emptyValue = LeEnum.Empty.TextValues().ToList();
 
             // assert
             Assert.That(emptyValue.Count(), Is.EqualTo(0));
         }
 
         [Test]
-        public void EnumExtensionsValuesTestForKnownSingleValue()
+        public void EnumExtensionsTextValuesTestForKnownSingleValue()
         {
             // arrange/Act
-            var values = LeEnum.Single1.Values().ToList();
+            var values = LeEnum.Single1.TextValues().ToList();
 
             // assert
             Assert.That(values.Count(), Is.EqualTo(1));
@@ -38,10 +38,10 @@ namespace DeuceGear.UnitTests.EnumExtensions
         }
 
         [Test]
-        public void EnumExtensionsValuesTestForKnownValue()
+        public void EnumExtensionsTextValuesTestForKnownValue()
         {
             // arrange/Act
-            var listValues = LeEnum.List.Values().ToList();
+            var listValues = LeEnum.List.TextValues().ToList();
 
             // assert
 

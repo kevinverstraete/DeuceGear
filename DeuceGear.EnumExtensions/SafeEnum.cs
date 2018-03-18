@@ -4,25 +4,45 @@ using System.Linq;
 
 namespace DeuceGear
 {
-    public class SafeEnum<T> where T : struct, IConvertible
+    public struct SafeEnum<T> : IEquatable<int>, IEquatable<SafeEnum<T>>
+        where T : struct, IConvertible
     {
-        private T _enum;
+        #region Properties
         private Type _type;
-        private EnumTypeInfo _info;
+
+        #region Info
         public bool HasFlagsAttribute => _info.HasFlagsAttribute;
         public IList<T> PossibleValues => _info.SortedValues.Cast<T>().ToList();
-        public T Value => _enum;
+        private EnumTypeInfo _info;
+        #endregion Info
+
+        #region Value
+        public T Value => _value;
+        private T _value;
+        private int _intValue;
+        private Enum _enumValue;
+        #endregion Value
+
+        #endregion Properties
+
+        #region Constructor
+        public SafeEnum(int @int) : this((T)(Enum.Parse(typeof(T), @int.ToString())))
+        {
+        }
+
         public SafeEnum(T @enum)
         {
-            _enum = @enum;
+            _value = @enum;
             _type = typeof(T);
-            _info = GetEnumTypeInfo(_type);
-
+            _info = GetTypeInfo(_type);
             if (!_info.IsEnum)
                 throw new ArgumentException("T must be an enumerated type");
-            var intValue = Convert.ToInt32(_enum);
+            _enumValue = @enum as Enum;
+            _intValue = Convert.ToInt32(_value);
+
             if (HasFlagsAttribute)
             {
+                var intValue = _intValue;
                 for (var i = 0; i < _info.ReversedValues.Count; i++)
                 {
                     var v = _info.ReversedValues[i];
@@ -34,25 +54,51 @@ namespace DeuceGear
             }
             else
             {
-                if (!_info.ReversedValues.Contains(intValue))
-                    throw new ArgumentException("T must be a value enum value");
+                if (!_info.ReversedValues.Contains(_intValue))
+                    throw new ArgumentException("T must be a valid enum value");
             }
         }
+        #endregion Constructor
 
+        #region Operators
         static public implicit operator SafeEnum<T>(T value)
         {
             return new SafeEnum<T>(value);
         }
-
         static public implicit operator T(SafeEnum<T> valid)
         {
-            return valid._enum;
+            return valid._value;
         }
+        static public implicit operator SafeEnum<T>(int value)
+        {
+            return new SafeEnum<T>(value);
+        }
+        static public implicit operator int(SafeEnum<T> valid)
+        {
+            return valid._intValue;
+        }
+        static public bool operator ==(SafeEnum<T> valid, T @enum)
+        {
+            return valid.Equals(@enum);
+        }
+        static public bool operator !=(SafeEnum<T> valid, T @enum)
+        {
+            return !valid.Equals(@enum);
+        }
+        static public bool operator ==(T @enum, SafeEnum<T> valid)
+        {
+            return valid.Equals(@enum);
+        }
+        static public bool operator !=(T @enum, SafeEnum<T> valid)
+        {
+            return !valid.Equals(@enum);
+        }
+        #endregion Operators
 
-        #region flag caching, limit the use of reflection
+        #region Enum info caching: limits the use of reflection
         private static Dictionary<Type, EnumTypeInfo> _typeDictionary = new Dictionary<Type, EnumTypeInfo>();
         private static object _flagLock = new object();
-        private static EnumTypeInfo GetEnumTypeInfo(Type type)
+        private static EnumTypeInfo GetTypeInfo(Type type)
         {
             if (_typeDictionary.ContainsKey(type))
                 return _typeDictionary[type];
@@ -88,6 +134,37 @@ namespace DeuceGear
                 }
             }
         }
-        #endregion flag caching, limit the use of reflection
+        #endregion Enum info caching: limits the use of reflection
+
+        #region Equals
+        public override int GetHashCode()
+        {
+            return _value.GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is int i)
+                return Equals(i);
+            else if (obj is SafeEnum<T> e)
+                return Equals(e);
+            else if (obj is T t)
+                return Equals(t);
+            return _value.Equals(obj);
+        }
+        public bool Equals(T other)
+        {
+            return _value.Equals(other);
+        }
+
+        public bool Equals(int other)
+        {
+            return _intValue.Equals(other);
+        }
+
+        public bool Equals(SafeEnum<T> other)
+        {
+            return _value.Equals(other._value);
+        }
+        #endregion Equals
     }
 }

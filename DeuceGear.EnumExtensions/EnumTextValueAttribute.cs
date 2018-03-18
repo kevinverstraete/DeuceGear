@@ -3,10 +3,10 @@
 namespace DeuceGear
 {
     /// <summary>
-    /// EnumValueAttribute gives the possibility to link one or more string values to an enumerator.
+    /// EnumTextValueAttribute gives the possibility to link one or more string values to an enumerator.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
-    public class EnumValueAttribute : Attribute
+    public class EnumTextValueAttribute : Attribute
     {
         /// <summary>
         /// The attribute value
@@ -18,22 +18,22 @@ namespace DeuceGear
         private readonly string _enumValue;
 
         /// <summary>
-        /// Initializes a new instance of the class <c>EnumValueAttribute</c> with default value (empty string)
+        /// Initializes a new instance of the class <c>EnumTextValueAttribute</c> with default value (empty string)
         /// </summary>
-        public EnumValueAttribute() : this(string.Empty) { }
+        public EnumTextValueAttribute() : this(string.Empty) { }
 
         /// <summary>
-        /// Initializes a new instance of the class <c>EnumValueAttribute</c> with specified value
+        /// Initializes a new instance of the class <c>EnumTextValueAttribute</c> with specified value
         /// </summary>
         /// <param name="value">
         /// The value of this attribute
         /// </param>
-        public EnumValueAttribute(string value) {
+        public EnumTextValueAttribute(string value) {
             _enumValue = value;
         }
 
         /// <summary>
-        /// Determines whether this instance and another specified <c>EnumValueAttribute</c> object have the same value.
+        /// Determines whether this instance and another specified <c>EnumTextValueAttribute</c> object have the same value.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>
@@ -41,7 +41,7 @@ namespace DeuceGear
         /// </returns>
         public override bool Equals(object obj)
         {
-            if (obj is EnumValueAttribute dsaObj)
+            if (obj is EnumTextValueAttribute dsaObj)
             {
                 if (_enumValue == null && dsaObj._enumValue == null)
                     return true;
@@ -53,7 +53,7 @@ namespace DeuceGear
         }
 
         /// <summary>
-        /// Returns the hascode for this <c>EnumValueAttribute</c>
+        /// Returns the hascode for this <c>EnumTextValueAttribute</c>
         /// </summary>
         /// <returns>
         /// A 32-bit signed integer hash code.
@@ -65,12 +65,12 @@ namespace DeuceGear
 
         #region Default
         /// <summary>
-        /// The default value for the attribute <c>EnumValueAttribute</c>, which is an empty string
+        /// The default value for the attribute <c>EnumTextValueAttribute</c>, which is an empty string
         /// </summary>
-        public static readonly EnumValueAttribute Default = new EnumValueAttribute();
+        public static readonly EnumTextValueAttribute Default = new EnumTextValueAttribute();
 
         /// <summary>
-        /// Indicates whether the value of this instance, is the default value for the <c>EnumValueAttribute</c>
+        /// Indicates whether the value of this instance, is the default value for the <c>EnumTextValueAttribute</c>
         /// </summary>
         /// <returns>
         /// True if this instance is the default attribute for the class; Otherwise, false.

@@ -3,14 +3,14 @@
 namespace DeuceGear.UnitTests.EnumExtensions
 {
     [TestFixture]
-    public partial class EnumValueAttributeTestFixture
+    public partial class EnumTextValueAttributeTestFixture
     {
 
         [Test]
-        public void EnumValueAttributeTestCtor()
+        public void EnumTextValueAttributeTestCtor()
         {
             // arrange/act
-            var result = new EnumValueAttribute();
+            var result = new EnumTextValueAttribute();
 
             // assert
             Assert.That(result.Value, Is.EqualTo(string.Empty));
@@ -19,10 +19,10 @@ namespace DeuceGear.UnitTests.EnumExtensions
         [Test]
         [TestCase(null)]
         [TestCase("testvalue")]
-        public void EnumValueAttributeTestCtorWithValue(string value)
+        public void EnumTextValueAttributeTestCtorWithValue(string value)
         {
             // arrange/act
-            var result = new EnumValueAttribute(value);
+            var result = new EnumTextValueAttribute(value);
 
             // assert
             Assert.That(result.Value, Is.EqualTo(value));
@@ -40,8 +40,8 @@ namespace DeuceGear.UnitTests.EnumExtensions
         public void EnumStringValueAttributeTestEquals(string value, string second, bool expected)
         {
             // arrange
-            var attrib1 = new EnumValueAttribute(value);
-            var attrib2 = new EnumValueAttribute(second);
+            var attrib1 = new EnumTextValueAttribute(value);
+            var attrib2 = new EnumTextValueAttribute(second);
 
             //act
             var result = attrib1.Equals(attrib2);
@@ -51,25 +51,25 @@ namespace DeuceGear.UnitTests.EnumExtensions
         }
 
         [Test]
-        public void EnumValueAttributeTestHashCode()
+        public void EnumTextValueAttributeTestHashCode()
         {
             // arrange
             var str = "text";
 
             // act
-            var attrib = new EnumValueAttribute(str);
+            var attrib = new EnumTextValueAttribute(str);
 
             // assert
             Assert.That(attrib.GetHashCode(), Is.EqualTo(str.GetHashCode()));
         }
 
         [Test]
-        public void EnumValueAttributeTestDefault()
+        public void EnumTextValueAttributeTestDefault()
         {
             // arrange/act
-            var attrib1 = new EnumValueAttribute(string.Empty);
-            var attrib2 = new EnumValueAttribute("bob");
-            var attrib3 = EnumValueAttribute.Default;
+            var attrib1 = new EnumTextValueAttribute(string.Empty);
+            var attrib2 = new EnumTextValueAttribute("bob");
+            var attrib3 = EnumTextValueAttribute.Default;
 
             // assert
             Assert.That(attrib1.IsDefaultAttribute, Is.EqualTo(true));

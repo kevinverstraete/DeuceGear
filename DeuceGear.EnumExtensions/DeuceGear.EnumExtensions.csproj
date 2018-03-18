@@ -10,6 +10,11 @@
     <Company>DeuceGear</Company>
     <Product>DeuceGear</Product>
     <DebugType>Full</DebugType>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
 </Project>
