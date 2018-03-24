@@ -30,5 +30,25 @@ namespace DeuceGear
                 yield return attributes[i].Value;
             }
         }
+
+        /// <summary>
+        /// Get all the values defined in the SafeEnum using a <c>EnumTextValueAttribute</c>.
+        /// </summary>
+        /// <param name="@enum">SafeEnum</param>
+        /// <returns>
+        /// Returns all defined string values using a <c>EnumTextValueAttribute</c>.
+        /// </returns>
+        public static IEnumerable<string> TextValues<T>(this SafeEnum<T> safeEnum)
+            where T : struct, IConvertible
+        {
+            var info = safeEnum.Value.GetType().GetField(safeEnum.ToString());
+            if (info == null)
+                yield break;
+            var attributes = (EnumTextValueAttribute[])info.GetCustomAttributes(typeof(EnumTextValueAttribute), false);
+            for (var i = 0; i < attributes.Length; i++)
+            {
+                yield return attributes[i].Value;
+            }
+        }
     }
 }

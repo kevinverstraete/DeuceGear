@@ -4,15 +4,24 @@ using System.Linq;
 
 namespace DeuceGear
 {
-    public struct SafeEnum<T> : IEquatable<int>, IEquatable<SafeEnum<T>>
-        where T : struct, IConvertible
+    public static partial class EnumExtensions
+    {
+        public static bool EqualsSafe<T>(this Enum @enum, SafeEnum<T> safeEnum)
+            where T : struct, IConvertible
+        {
+            return safeEnum.Equals(@enum);
+        }
+    }
+
+    public struct SafeEnum<T> : IEquatable<SafeEnum<T>>
+    where T : struct, IConvertible
     {
         #region Properties
         private Type _type;
 
         #region Info
         public bool HasFlagsAttribute => _info.HasFlagsAttribute;
-        public IList<T> PossibleValues => _info.SortedValues.Cast<T>().ToList();
+        public IEnumerable<T> PossibleValues => Enums.EnumList<T>();
         private EnumTypeInfo _info;
         #endregion Info
 
@@ -26,9 +35,7 @@ namespace DeuceGear
         #endregion Properties
 
         #region Constructor
-        public SafeEnum(int @int) : this((T)(Enum.Parse(typeof(T), @int.ToString())))
-        {
-        }
+        public SafeEnum(int @int) : this((T)(Enum.Parse(typeof(T), @int.ToString()))){}
 
         public SafeEnum(T @enum)
         {
@@ -43,7 +50,7 @@ namespace DeuceGear
             if (HasFlagsAttribute)
             {
                 var intValue = _intValue;
-                for (var i = 0; i < _info.ReversedValues.Count; i++)
+                for (var i = 0; i < _info.ReversedValues.Length; i++)
                 {
                     var v = _info.ReversedValues[i];
                     if (intValue >= v)
@@ -77,21 +84,9 @@ namespace DeuceGear
         {
             return valid._intValue;
         }
-        static public bool operator ==(SafeEnum<T> valid, T @enum)
+        static public implicit operator Enum(SafeEnum<T> valid)
         {
-            return valid.Equals(@enum);
-        }
-        static public bool operator !=(SafeEnum<T> valid, T @enum)
-        {
-            return !valid.Equals(@enum);
-        }
-        static public bool operator ==(T @enum, SafeEnum<T> valid)
-        {
-            return valid.Equals(@enum);
-        }
-        static public bool operator !=(T @enum, SafeEnum<T> valid)
-        {
-            return !valid.Equals(@enum);
+            return valid._enumValue;
         }
         #endregion Operators
 
@@ -115,22 +110,26 @@ namespace DeuceGear
         {
             public bool HasFlagsAttribute;
             public bool IsEnum;
-            public IList<int> ReversedValues;
-            public IList<int> SortedValues;
+            public object[] SortedValues;
+            public object[] ReversedValues;
             public EnumTypeInfo(Type type)
             {
                 HasFlagsAttribute = type.IsDefined(typeof(FlagsAttribute), false);
                 IsEnum = type.IsEnum;
                 if (IsEnum)
                 {
-                    var values = ((int[])Enum.GetValues(type));
-                    SortedValues = values.OrderBy(x => x).ToList().AsReadOnly();
-                    ReversedValues = values.OrderByDescending(x => x).ToList().AsReadOnly();
+                    // sorted values
+                    SortedValues = (object[])type.GetEnumValues();
+                    Array.Sort(SortedValues);
+                    // reversed values
+                    ReversedValues = new object[SortedValues.Length];
+                    SortedValues.CopyTo(ReversedValues, 0);
+                    Array.Reverse(ReversedValues);
                 }
                 else
                 {
-                    ReversedValues = new List<int>();
-                    SortedValues = new List<int>();
+                    ReversedValues = new object[0];
+                    SortedValues = new object[0];
                 }
             }
         }
@@ -141,24 +140,12 @@ namespace DeuceGear
         {
             return _value.GetHashCode();
         }
+
         public override bool Equals(object obj)
         {
-            if (obj is int i)
-                return Equals(i);
-            else if (obj is SafeEnum<T> e)
-                return Equals(e);
-            else if (obj is T t)
+            if (obj is SafeEnum<T> t)
                 return Equals(t);
             return _value.Equals(obj);
-        }
-        public bool Equals(T other)
-        {
-            return _value.Equals(other);
-        }
-
-        public bool Equals(int other)
-        {
-            return _intValue.Equals(other);
         }
 
         public bool Equals(SafeEnum<T> other)
@@ -166,5 +153,12 @@ namespace DeuceGear
             return _value.Equals(other._value);
         }
         #endregion Equals
+
+        #region ToString
+        public override string ToString()
+        {
+            return _value.ToString();
+        }
+        #endregion ToString
     }
 }

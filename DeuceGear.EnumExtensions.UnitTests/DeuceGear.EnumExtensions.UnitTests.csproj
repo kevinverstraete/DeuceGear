@@ -43,16 +43,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums.EnumList.UShort.TestFixture.cs" />
+    <Compile Include="Enums.EnumList.ULong.TestFixture.cs" />
+    <Compile Include="Enums.EnumList.UInt.TestFixture.cs" />
+    <Compile Include="Enums.EnumList.Short.TestFixture.cs" />
+    <Compile Include="Enums.EnumList.Long.TestFixture.cs" />
+    <Compile Include="Enums.EnumList.Int.TestFixture.cs" />
+    <Compile Include="Enums.EnumList.SByte.TestFixture.cs" />
+    <Compile Include="Enums.EnumList.Byte.TestFixture.cs" />
+    <Compile Include="Enums.EnumList.Regular.TestFixture.cs" />
     <Compile Include="Enums.EnumList.TestFixture.cs" />
-    <Compile Include="EnumExtensions.TextValue.TestFixture.cs" />
-    <Compile Include="EnumExtensions.TextValues.TestFixture.cs" />
+    <Compile Include="EnumSamples.ulong.cs" />
+    <Compile Include="EnumSamples.long.cs" />
+    <Compile Include="EnumSamples.uint.cs" />
+    <Compile Include="EnumSamples.int.cs" />
+    <Compile Include="EnumSamples.ushort.cs" />
+    <Compile Include="EnumSamples.short.cs" />
+    <Compile Include="EnumSamples.sbyte.cs" />
+    <Compile Include="EnumSamples.byte.cs" />
+    <Compile Include="EnumSamples.regular.cs" />
     <Compile Include="EnumTextValueAttribute.TestFixture.cs" />
-    <Compile Include="LeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Compile Include="SafeEnum.TestFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DeuceGear.EnumExtensions\DeuceGear.EnumExtensions.csproj">

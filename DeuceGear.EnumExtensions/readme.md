@@ -63,7 +63,7 @@ var result = Enums.EnumList<LeEnum>()
 // result while be an IEnumerable of Enums.
 ```
 
-This method has also a little brother, namely DeuceGear.Enums.EnumIntList\<T\>().
-This returns a simple array of integers with all possible values.
+This method has also a little brother, namely DeuceGear.Enums.EnumIntList\<T,Ttarget\>().
+This returns a simple array of Ttarget with all possible values. The Enum needs to implement the Ttarget type ofcourse.
 
 [<< Back to main page](../)

@@ -2,7 +2,7 @@
 
 namespace DeuceGear.UnitTests.EnumExtensions
 {
-    public enum LeEnum
+    public enum RegularEnum
     {
         Empty,
         [EnumTextValue("The value of Single1")]
@@ -15,7 +15,7 @@ namespace DeuceGear.UnitTests.EnumExtensions
         List
     }
 
-    public enum LeCachingEnum
+    public enum RegularCachingEnum
     {
         Empty,
         Single1,
@@ -24,15 +24,16 @@ namespace DeuceGear.UnitTests.EnumExtensions
     }
 
     [Flags]
-    public enum LeFlaggedEnum
+    public enum RegularFlaggedEnum
     {
         Empty = 1,
         Single1 = 2,
         Single2 = 4,
         List = 8
     }
+
     [Flags]
-    public enum LeBadFlaggedEnum
+    public enum RegularBadFlaggedEnum
     {
         Empty = 1,
         Single1 = 2,

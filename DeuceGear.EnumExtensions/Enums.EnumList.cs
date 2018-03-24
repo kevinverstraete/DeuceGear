@@ -8,42 +8,48 @@ namespace DeuceGear
     public static partial class Enums
     {
         private static object _enumExtensionsPrepareListLock = new object();
-        private static Dictionary<Type, Array> _enumExtensionsListDictionary = new Dictionary<Type, Array>();
+        private static Dictionary<Type, Array> _enumExtensionsListValueDictionary = new Dictionary<Type, Array>();
+        private static Dictionary<Type, Type> _enumExtensionsListTypeDictionary = new Dictionary<Type, Type>();
 
         #region private dictionary methods
         internal static void EnumListPrepare(Type type)
         {
-            if (_enumExtensionsListDictionary.ContainsKey(type))
+            if (_enumExtensionsListValueDictionary.ContainsKey(type))
                 return;
             lock (_enumExtensionsPrepareListLock)
             {
-                if (_enumExtensionsListDictionary.ContainsKey(type))
+                if (_enumExtensionsListValueDictionary.ContainsKey(type))
                     return;
-                _enumExtensionsListDictionary.Add(type, type.GetEnumValues());
+                _enumExtensionsListValueDictionary.Add(type, type.GetEnumValues());
+                _enumExtensionsListTypeDictionary.Add(type, Enum.GetUnderlyingType(type));
             }
         }
 
         internal static T[] EnumListClonedResult<T>(Type type)
         {
-            var values = _enumExtensionsListDictionary[type];
+            var requestType = typeof(T);
+            var dictType = _enumExtensionsListTypeDictionary[type];
+            if (dictType != requestType && type != requestType)
+                throw new NotSupportedException($"{type.FullName} can not be converted to a list of type {requestType}");
+            var values = _enumExtensionsListValueDictionary[type];
             var result = new T[values.Length];
             values.CopyTo(result, 0);
             return result;
         }
         #endregion private dictionary methods
-
         /// <summary>
-        /// Get a list of possible int values for a <c>Enum</c>
+        /// Get the list of Ttarget values contained in a <c>Enum</c>
         /// </summary>
-        /// <typeparam name="T">Enum type</typeparam>
-        /// <returns>int[] list of values</returns>
-        public static int[] EnumIntList<T>() where T : struct, IConvertible
+        /// <typeparam name="Tenum">Enum type</typeparam>
+        /// <typeparam name="Ttarget">Target Type</typeparam>
+        /// <returns></returns>
+        public static Ttarget[] EnumList<Tenum, Ttarget>() where Tenum : struct, IConvertible
         {
-            var type = typeof(T);
+            var type = typeof(Tenum);
             if (!type.IsEnum)
                 throw new ArgumentException("T must be an enumerated type");
             EnumListPrepare(type);
-            return EnumListClonedResult<int>(type);
+            return EnumListClonedResult<Ttarget>(type);
         }
 
         /// <summary>

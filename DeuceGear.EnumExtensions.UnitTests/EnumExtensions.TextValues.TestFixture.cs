@@ -10,7 +10,7 @@ namespace DeuceGear.UnitTests.EnumExtensions
         public void EnumExtensionsTextValuesTestForUnknownValue()
         {
             // arrange/Act
-            var unknownValue = ((LeEnum)13).TextValues().ToList();
+            var unknownValue = ((RegularEnum)13).TextValues().ToList();
 
             // assert
             Assert.That(unknownValue.Count(), Is.EqualTo(0));
@@ -20,7 +20,7 @@ namespace DeuceGear.UnitTests.EnumExtensions
         public void EnumExtensionsTextValuesTestForEmptyValue()
         {
             // arrange/Act
-            var emptyValue = LeEnum.Empty.TextValues().ToList();
+            var emptyValue = RegularEnum.Empty.TextValues().ToList();
 
             // assert
             Assert.That(emptyValue.Count(), Is.EqualTo(0));
@@ -30,7 +30,7 @@ namespace DeuceGear.UnitTests.EnumExtensions
         public void EnumExtensionsTextValuesTestForKnownSingleValue()
         {
             // arrange/Act
-            var values = LeEnum.Single1.TextValues().ToList();
+            var values = RegularEnum.Single1.TextValues().ToList();
 
             // assert
             Assert.That(values.Count(), Is.EqualTo(1));
@@ -41,7 +41,7 @@ namespace DeuceGear.UnitTests.EnumExtensions
         public void EnumExtensionsTextValuesTestForKnownValue()
         {
             // arrange/Act
-            var listValues = LeEnum.List.TextValues().ToList();
+            var listValues = RegularEnum.List.TextValues().ToList();
 
             // assert
 
