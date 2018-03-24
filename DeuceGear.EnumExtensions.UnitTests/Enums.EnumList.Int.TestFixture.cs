@@ -45,6 +45,15 @@ namespace DeuceGear.UnitTests.EnumExtensions
         [TestCase(100)]
         [TestCase(1000)]
         public void EnumsListIntEnumPerformanceTestExcludingTheFirstCall(int testLength) => EnumsListEnumPerformanceTestExcludingTheFirstCall<IntEnum, int>(testLength);
+
+        [Test]
+        public void EnumsListInt64EnumPerformanceTest() => EnumsListEnumPerformanceTest<Int64Enum, Int64>();
+
+        [Test]
+        [TestCase(1)]
+        [TestCase(100)]
+        [TestCase(1000)]
+        public void EnumsListInt64EnumPerformanceTestExcludingTheFirstCall(int testLength) => EnumsListEnumPerformanceTestExcludingTheFirstCall<Int64Enum, Int64>(testLength);
         #endregion Performance
     }
 }

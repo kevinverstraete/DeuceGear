@@ -34,17 +34,7 @@ namespace DeuceGear.UnitTests.EnumExtensions
             EnumExtensionsTextValuesPrivate(UIntEnum.Empty, null);
             EnumExtensionsTextValuesPrivate(ULongEnum.Empty, null);
             EnumExtensionsTextValuesPrivate(UShortEnum.Empty, null);
-
-            EnumExtensionsTextValuesPrivate<ByteEnum>(ByteEnum.Empty, null);
-            EnumExtensionsTextValuesPrivate<IntEnum>(IntEnum.Empty, null);
-            EnumExtensionsTextValuesPrivate<LongEnum>(LongEnum.Empty, null);
-            EnumExtensionsTextValuesPrivate<RegularEnum>(RegularEnum.Empty, null);
-            EnumExtensionsTextValuesPrivate<SByteEnum>(SByteEnum.Empty, null);
-            EnumExtensionsTextValuesPrivate<ShortEnum>(ShortEnum.Empty, null);
-            EnumExtensionsTextValuesPrivate<UIntEnum>(UIntEnum.Empty, null);
-            EnumExtensionsTextValuesPrivate<ULongEnum>(ULongEnum.Empty, null);
-            EnumExtensionsTextValuesPrivate<UShortEnum>(UShortEnum.Empty, null);
-        }
+                    }
 
         [Test]
         public void EnumExtensionsTextValuesTestForKnownSingleValue()
@@ -59,18 +49,7 @@ namespace DeuceGear.UnitTests.EnumExtensions
             EnumExtensionsTextValuesPrivate(ShortEnum.Single1, list);
             EnumExtensionsTextValuesPrivate(UIntEnum.Single1, list);
             EnumExtensionsTextValuesPrivate(ULongEnum.Single1, list);
-            EnumExtensionsTextValuesPrivate(UShortEnum.Single1, list);
-
-            EnumExtensionsTextValuesPrivate<ByteEnum>(ByteEnum.Single1, list);
-            EnumExtensionsTextValuesPrivate<IntEnum>(IntEnum.Single1, list);
-            EnumExtensionsTextValuesPrivate<LongEnum>(LongEnum.Single1, list);
-            EnumExtensionsTextValuesPrivate<RegularEnum>(RegularEnum.Single1, list);
-            EnumExtensionsTextValuesPrivate<SByteEnum>(SByteEnum.Single1, list);
-            EnumExtensionsTextValuesPrivate<ShortEnum>(ShortEnum.Single1, list);
-            EnumExtensionsTextValuesPrivate<UIntEnum>(UIntEnum.Single1, list);
-            EnumExtensionsTextValuesPrivate<ULongEnum>(ULongEnum.Single1, list);
-            EnumExtensionsTextValuesPrivate<UShortEnum>(UShortEnum.Single1, list);
-        }
+            EnumExtensionsTextValuesPrivate(UShortEnum.Single1, list);        }
 
 
         [Test]
@@ -87,16 +66,6 @@ namespace DeuceGear.UnitTests.EnumExtensions
             EnumExtensionsTextValuesPrivate(UIntEnum.List, list);
             EnumExtensionsTextValuesPrivate(ULongEnum.List, list);
             EnumExtensionsTextValuesPrivate(UShortEnum.List, list);
-
-            EnumExtensionsTextValuesPrivate<ByteEnum>(ByteEnum.List, list);
-            EnumExtensionsTextValuesPrivate<IntEnum>(IntEnum.List, list);
-            EnumExtensionsTextValuesPrivate<LongEnum>(LongEnum.List, list);
-            EnumExtensionsTextValuesPrivate<RegularEnum>(RegularEnum.List, list);
-            EnumExtensionsTextValuesPrivate<SByteEnum>(SByteEnum.List, list);
-            EnumExtensionsTextValuesPrivate<ShortEnum>(ShortEnum.List, list);
-            EnumExtensionsTextValuesPrivate<UIntEnum>(UIntEnum.List, list);
-            EnumExtensionsTextValuesPrivate<ULongEnum>(ULongEnum.List, list);
-            EnumExtensionsTextValuesPrivate<UShortEnum>(UShortEnum.List, list);
         }
 
         #region Tests logic
@@ -108,24 +77,6 @@ namespace DeuceGear.UnitTests.EnumExtensions
             
             // Act
             var values = @enum.TextValues().ToList();
-
-            // Assert
-            Assert.That(values.Count(), Is.EqualTo(count));
-            for (int i = 0; i < count; i++)
-            {
-                Assert.That(values[i], Is.EqualTo(expected[i]));
-            }
-        }
-
-        private void EnumExtensionsTextValuesPrivate<T>(SafeEnum<T> safeEnum, List<string> expected)
-            where T : struct, IConvertible
-        {
-            // arrange/
-            expected = expected ?? new List<string>();
-            var count = expected.Count;
-
-            // Act
-            var values = safeEnum.TextValues().ToList();
 
             // Assert
             Assert.That(values.Count(), Is.EqualTo(count));
