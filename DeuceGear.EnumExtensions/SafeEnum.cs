@@ -49,20 +49,20 @@ namespace DeuceGear
 
             if (HasFlagsAttribute)
             {
-                var intValue = _intValue;
-                for (var i = 0; i < _info.ReversedValues.Length; i++)
-                {
-                    var v = _info.ReversedValues[i];
-                    if (intValue >= v)
-                        intValue = intValue - v;
-                }
-                if (intValue != 0)
-                    throw new ArgumentException("T contains unknown flag values");
+                //var intValue = _intValue;
+                //for (var i = 0; i < _info.ReversedValues.Length; i++)
+                //{
+                //    var v = _info.ReversedValues[i];
+                //    if (intValue >= v)
+                //        intValue = intValue - v;
+                //}
+                //if (intValue != 0)
+                //    throw new ArgumentException("T contains unknown flag values");
             }
             else
             {
-                if (!_info.ReversedValues.Contains(_intValue))
-                    throw new ArgumentException("T must be a valid enum value");
+                //if (!_info.ReversedValues.Contains(_intValue))
+                //    throw new ArgumentException("T must be a valid enum value");
             }
         }
         #endregion Constructor
@@ -110,8 +110,8 @@ namespace DeuceGear
         {
             public bool HasFlagsAttribute;
             public bool IsEnum;
-            public object[] SortedValues;
-            public object[] ReversedValues;
+            public Array SortedValues;
+            public Array ReversedValues;
             public EnumTypeInfo(Type type)
             {
                 HasFlagsAttribute = type.IsDefined(typeof(FlagsAttribute), false);
@@ -119,17 +119,17 @@ namespace DeuceGear
                 if (IsEnum)
                 {
                     // sorted values
-                    SortedValues = (object[])type.GetEnumValues();
+                    SortedValues = type.GetEnumValues();
                     Array.Sort(SortedValues);
                     // reversed values
-                    ReversedValues = new object[SortedValues.Length];
+                    ReversedValues = Array.CreateInstance(type, SortedValues.Length); 
                     SortedValues.CopyTo(ReversedValues, 0);
                     Array.Reverse(ReversedValues);
                 }
                 else
                 {
-                    ReversedValues = new object[0];
-                    SortedValues = new object[0];
+                    ReversedValues = Array.CreateInstance(type, 0);
+                    SortedValues = Array.CreateInstance(type, 0);
                 }
             }
         }

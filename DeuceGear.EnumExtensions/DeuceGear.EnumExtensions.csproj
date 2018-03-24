@@ -17,10 +17,4 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="EnumExtensions.TextValue.cs" />
-    <Compile Remove="EnumExtensions.TextValues.cs" />
-    <Compile Remove="SafeEnum.cs" />
-  </ItemGroup>
-
 </Project>

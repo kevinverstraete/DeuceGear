@@ -37,97 +37,14 @@ namespace DeuceGear.UnitTests.EnumExtensions
         }
 
         #region Performance
-        // Result: Single use: beter to use typeof(Enum).GetEnumValues
-        // Use it in an iteration. The first call will be slower than typeof(Enum).GetEnumValues
-        // From that point on, it wil beat typeof(Enum).GetEnumValues() and Enum.GetValues(typeof(LeEnum))
         [Test]
-        public void EnumsListULongEnumPerformanceTest()
-        {
-            // arrange
-            var stopwatch = new Stopwatch();
-            var testLength = 20000;
-
-            // act - 1 - Enum.GetValues
-            stopwatch.Start();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = (ulong[])Enum.GetValues(typeof(ULongEnum));
-            }
-            stopwatch.Stop();
-            var enumGetValues = stopwatch.ElapsedTicks;
-
-            // act - 2 - typeof().GetEnumValues
-            stopwatch.Restart();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = (ulong[])typeof(ULongEnum).GetEnumValues();
-            }
-            stopwatch.Stop();
-            var typeofGetValues = stopwatch.ElapsedTicks;
-
-            // act - 3 - deucegear
-            stopwatch.Restart();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = Enums.EnumList<ULongEnum, ulong>();
-            }
-            stopwatch.Stop();
-            var deucegear = stopwatch.ElapsedTicks;
-
-            // assert
-            Console.WriteLine("Enum.GetValues: " + enumGetValues);
-            Console.WriteLine("Typeof.GetEnumValues: " + typeofGetValues);
-            Console.WriteLine("Deucegear: " + deucegear);
-            Assert.That(deucegear, Is.LessThanOrEqualTo(enumGetValues));
-            Assert.That(deucegear, Is.LessThanOrEqualTo(typeofGetValues));
-        }
+        public void EnumsListULongEnumPerformanceTest() => EnumsListEnumPerformanceTest<ULongEnum, ulong>();
 
         [Test]
         [TestCase(1)]
         [TestCase(100)]
         [TestCase(1000)]
-        public void EnumsListULongEnumPerformanceTestExcludingTheFirstCall(int testLength)
-        {
-            // arrange
-            var stopwatch = new Stopwatch();
-
-            // act - 1 - Enum.GetValues
-            var values1 = (ulong[])Enum.GetValues(typeof(ULongEnum));
-            stopwatch.Start();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = (ulong[])Enum.GetValues(typeof(ULongEnum));
-            }
-            stopwatch.Stop();
-            var enumGetValues = stopwatch.ElapsedTicks;
-
-            // act - 2 - typeof().GetEnumValues
-            var values2 = (ulong[])typeof(ULongEnum).GetEnumValues();
-            stopwatch.Restart();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = (ulong[])typeof(ULongEnum).GetEnumValues();
-            }
-            stopwatch.Stop();
-            var typeofGetValues = stopwatch.ElapsedTicks;
-
-            // act - 3 - deucegear
-            var values3 = Enums.EnumList<ULongEnum, ulong>();
-            stopwatch.Restart();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = Enums.EnumList<ULongEnum, ulong>();
-            }
-            stopwatch.Stop();
-            var deucegear = stopwatch.ElapsedTicks;
-
-            // assert
-            Console.WriteLine("Enum.GetValues: " + enumGetValues);
-            Console.WriteLine("Typeof.GetEnumValues: " + typeofGetValues);
-            Console.WriteLine("Deucegear: " + deucegear);
-            Assert.That(deucegear, Is.LessThanOrEqualTo(enumGetValues));
-            Assert.That(deucegear, Is.LessThanOrEqualTo(typeofGetValues));
-        }
+        public void EnumsListULongEnumPerformanceTestExcludingTheFirstCall(int testLength) => EnumsListEnumPerformanceTestExcludingTheFirstCall<ULongEnum, ulong>(testLength);
         #endregion Performance
     }
 }

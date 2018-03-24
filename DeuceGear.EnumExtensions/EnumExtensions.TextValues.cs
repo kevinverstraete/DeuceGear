@@ -10,6 +10,7 @@ namespace DeuceGear
     /// </summary>
     public static partial class EnumExtensions
     {
+
         /// <summary>
         /// Get all the values defined in the enum using a <c>EnumTextValueAttribute</c>.
         /// </summary>

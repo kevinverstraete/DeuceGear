@@ -8,6 +8,8 @@ namespace DeuceGear.UnitTests.EnumExtensions
     [TestFixture]
     public partial class EnumsTestFixture
     {
+        private object _performanceLock = new object();
+
         [Test]
         public void EnumsListByteEnumGenericList()
         {
@@ -37,97 +39,14 @@ namespace DeuceGear.UnitTests.EnumExtensions
         }
 
         #region Performance
-        // Result: Single use: beter to use typeof(Enum).GetEnumValues
-        // Use it in an iteration. The first call will be slower than typeof(Enum).GetEnumValues
-        // From that point on, it wil beat typeof(Enum).GetEnumValues() and Enum.GetValues(typeof(LeEnum))
         [Test]
-        public void EnumsListByteEnumPerformanceTest()
-        {
-            // arrange
-            var stopwatch = new Stopwatch();
-            var testLength = 20000;
-
-            // act - 1 - Enum.GetValues
-            stopwatch.Start();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = (byte[])Enum.GetValues(typeof(ByteEnum));
-            }
-            stopwatch.Stop();
-            var enumGetValues = stopwatch.ElapsedTicks;
-
-            // act - 2 - typeof().GetEnumValues
-            stopwatch.Restart();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = (byte[])typeof(ByteEnum).GetEnumValues();
-            }
-            stopwatch.Stop();
-            var typeofGetValues = stopwatch.ElapsedTicks;
-
-            // act - 3 - deucegear
-            stopwatch.Restart();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = Enums.EnumList<ByteEnum, byte>();
-            }
-            stopwatch.Stop();
-            var deucegear = stopwatch.ElapsedTicks;
-
-            // assert
-            Console.WriteLine("Enum.GetValues: " + enumGetValues);
-            Console.WriteLine("Typeof.GetEnumValues: " + typeofGetValues);
-            Console.WriteLine("Deucegear: " + deucegear);
-            Assert.That(deucegear, Is.LessThanOrEqualTo(enumGetValues));
-            Assert.That(deucegear, Is.LessThanOrEqualTo(typeofGetValues));
-        }
+        public void EnumsListByteEnumPerformanceTest() => EnumsListEnumPerformanceTest<ByteEnum, byte>();
 
         [Test]
         [TestCase(1)]
         [TestCase(100)]
         [TestCase(1000)]
-        public void EnumsListByteEnumPerformanceTestExcludingTheFirstCall(int testLength)
-        {
-            // arrange
-            var stopwatch = new Stopwatch();
-
-            // act - 1 - Enum.GetValues
-            var values1 = (byte[])Enum.GetValues(typeof(ByteEnum));
-            stopwatch.Start();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = (byte[])Enum.GetValues(typeof(ByteEnum));
-            }
-            stopwatch.Stop();
-            var enumGetValues = stopwatch.ElapsedTicks;
-
-            // act - 2 - typeof().GetEnumValues
-            var values2 = (byte[])typeof(ByteEnum).GetEnumValues();
-            stopwatch.Restart();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = (byte[])typeof(ByteEnum).GetEnumValues();
-            }
-            stopwatch.Stop();
-            var typeofGetValues = stopwatch.ElapsedTicks;
-
-            // act - 3 - deucegear
-            var values3 = Enums.EnumList<ByteEnum, byte>();
-            stopwatch.Restart();
-            for (int i = 0; i < testLength; i++)
-            {
-                var values = Enums.EnumList<ByteEnum, byte>();
-            }
-            stopwatch.Stop();
-            var deucegear = stopwatch.ElapsedTicks;
-
-            // assert
-            Console.WriteLine("Enum.GetValues: " + enumGetValues);
-            Console.WriteLine("Typeof.GetEnumValues: " + typeofGetValues);
-            Console.WriteLine("Deucegear: " + deucegear);
-            Assert.That(deucegear, Is.LessThanOrEqualTo(enumGetValues));
-            Assert.That(deucegear, Is.LessThanOrEqualTo(typeofGetValues));
-        }
+        public void EnumsListByteEnumPerformanceTestExcludingTheFirstCall(int testLength) =>  EnumsListEnumPerformanceTestExcludingTheFirstCall<ByteEnum, byte>(testLength);
         #endregion Performance
     }
 }

@@ -27,6 +27,15 @@ namespace DeuceGear.UnitTests.EnumExtensions
             Assert.That(((SafeEnum<UIntEnum>)((UIntEnum)15)).TextValue(), Is.EqualTo("15"));
             Assert.That(((SafeEnum<ULongEnum>)((ULongEnum)15)).TextValue(), Is.EqualTo("15"));
             Assert.That(((SafeEnum<UShortEnum>)((UShortEnum)15)).TextValue(), Is.EqualTo("15"));
+
+            Assert.That(new SafeEnum<ByteEnum>(15).TextValue(), Is.EqualTo("15"));
+            Assert.That(new SafeEnum<IntEnum>(15).TextValue(), Is.EqualTo("15"));
+            Assert.That(new SafeEnum<LongEnum>(15).TextValue(), Is.EqualTo("15"));
+            Assert.That(new SafeEnum<RegularEnum>(15).TextValue(), Is.EqualTo("15"));
+            Assert.That(new SafeEnum<ShortEnum>(15).TextValue(), Is.EqualTo("15"));
+            Assert.That(new SafeEnum<UIntEnum>(15).TextValue(), Is.EqualTo("15"));
+            Assert.That(new SafeEnum<ULongEnum>(15).TextValue(), Is.EqualTo("15"));
+            Assert.That(new SafeEnum<UShortEnum>(15).TextValue(), Is.EqualTo("15"));
         }
 
         [Test]
@@ -77,6 +86,52 @@ namespace DeuceGear.UnitTests.EnumExtensions
             Assert.That(UShortEnum.Single1.TextValue(), Is.EqualTo("The value of Single1"));
             Assert.That(UShortEnum.Single2.TextValue(), Is.EqualTo("The value of Single2"));
             Assert.That(UShortEnum.List.TextValue(), Is.EqualTo("The first value of List"));
+
+            //assert
+            Assert.That(new SafeEnum<ByteEnum>(ByteEnum.Empty).TextValue(), Is.EqualTo("Empty"));
+            Assert.That(new SafeEnum<ByteEnum>(ByteEnum.Single1).TextValue(), Is.EqualTo("The value of Single1"));
+            Assert.That(new SafeEnum<ByteEnum>(ByteEnum.Single2).TextValue(), Is.EqualTo("The value of Single2"));
+            Assert.That(new SafeEnum<ByteEnum>(ByteEnum.List).TextValue(), Is.EqualTo("The first value of List"));
+
+            Assert.That(new SafeEnum<IntEnum>(IntEnum.Empty).TextValue(), Is.EqualTo("Empty"));
+            Assert.That(new SafeEnum<IntEnum>(IntEnum.Single1).TextValue(), Is.EqualTo("The value of Single1"));
+            Assert.That(new SafeEnum<IntEnum>(IntEnum.Single2).TextValue(), Is.EqualTo("The value of Single2"));
+            Assert.That(new SafeEnum<IntEnum>(IntEnum.List).TextValue(), Is.EqualTo("The first value of List"));
+
+            Assert.That(new SafeEnum<LongEnum>(LongEnum.Empty).TextValue(), Is.EqualTo("Empty"));
+            Assert.That(new SafeEnum<LongEnum>(LongEnum.Single1).TextValue(), Is.EqualTo("The value of Single1"));
+            Assert.That(new SafeEnum<LongEnum>(LongEnum.Single2).TextValue(), Is.EqualTo("The value of Single2"));
+            Assert.That(new SafeEnum<LongEnum>(LongEnum.List).TextValue(), Is.EqualTo("The first value of List"));
+
+            Assert.That(new SafeEnum<RegularEnum>(RegularEnum.Empty).TextValue(), Is.EqualTo("Empty"));
+            Assert.That(new SafeEnum<RegularEnum>(RegularEnum.Single1).TextValue(), Is.EqualTo("The value of Single1"));
+            Assert.That(new SafeEnum<RegularEnum>(RegularEnum.Single2).TextValue(), Is.EqualTo("The value of Single2"));
+            Assert.That(new SafeEnum<RegularEnum>(RegularEnum.List).TextValue(), Is.EqualTo("The first value of List"));
+
+            Assert.That(new SafeEnum<SByteEnum>(SByteEnum.Empty).TextValue(), Is.EqualTo("Empty"));
+            Assert.That(new SafeEnum<SByteEnum>(SByteEnum.Single1).TextValue(), Is.EqualTo("The value of Single1"));
+            Assert.That(new SafeEnum<SByteEnum>(SByteEnum.Single2).TextValue(), Is.EqualTo("The value of Single2"));
+            Assert.That(new SafeEnum<SByteEnum>(SByteEnum.List).TextValue(), Is.EqualTo("The first value of List"));
+
+            Assert.That(new SafeEnum<ShortEnum>(ShortEnum.Empty).TextValue(), Is.EqualTo("Empty"));
+            Assert.That(new SafeEnum<ShortEnum>(ShortEnum.Single1).TextValue(), Is.EqualTo("The value of Single1"));
+            Assert.That(new SafeEnum<ShortEnum>(ShortEnum.Single2).TextValue(), Is.EqualTo("The value of Single2"));
+            Assert.That(new SafeEnum<ShortEnum>(ShortEnum.List).TextValue(), Is.EqualTo("The first value of List"));
+
+            Assert.That(new SafeEnum<UIntEnum>(UIntEnum.Empty).TextValue(), Is.EqualTo("Empty"));
+            Assert.That(new SafeEnum<UIntEnum>(UIntEnum.Single1).TextValue(), Is.EqualTo("The value of Single1"));
+            Assert.That(new SafeEnum<UIntEnum>(UIntEnum.Single2).TextValue(), Is.EqualTo("The value of Single2"));
+            Assert.That(new SafeEnum<UIntEnum>(UIntEnum.List).TextValue(), Is.EqualTo("The first value of List"));
+
+            Assert.That(new SafeEnum<ULongEnum>(ULongEnum.Empty).TextValue(), Is.EqualTo("Empty"));
+            Assert.That(new SafeEnum<ULongEnum>(ULongEnum.Single1).TextValue(), Is.EqualTo("The value of Single1"));
+            Assert.That(new SafeEnum<ULongEnum>(ULongEnum.Single2).TextValue(), Is.EqualTo("The value of Single2"));
+            Assert.That(new SafeEnum<ULongEnum>(ULongEnum.List).TextValue(), Is.EqualTo("The first value of List"));
+
+            Assert.That(new SafeEnum<UShortEnum>(UShortEnum.Empty).TextValue(), Is.EqualTo("Empty"));
+            Assert.That(new SafeEnum<UShortEnum>(UShortEnum.Single1).TextValue(), Is.EqualTo("The value of Single1"));
+            Assert.That(new SafeEnum<UShortEnum>(UShortEnum.Single2).TextValue(), Is.EqualTo("The value of Single2"));
+            Assert.That(new SafeEnum<UShortEnum>(UShortEnum.List).TextValue(), Is.EqualTo("The first value of List"));
         }
     }
 }

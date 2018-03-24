@@ -28,7 +28,6 @@ namespace DeuceGear
             return @enum.ToString();
         }
 
-
         /// <summary>
         /// Gets the first value defined using a <c>EnumTextValueAttribute</c>.
         /// </summary>
